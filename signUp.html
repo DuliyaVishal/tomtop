@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="home.html"><img src="https://static.tomtop.com/tomtop/icon/logo.png?v=3" alt=""></a>
+    <h1>SignUp</h1>
+    <input id="email" type="email" placeholder="Enter your email">
+    <input id="pass" type="password" placeholder="Password"  >
+    <input id="user" type="text" placeholder="User name">
+    <input id="mobile" type="Number" placeholder="Enter youtr mobile number" >
+    <button>Submit</button>
+</body>
+</html>
+<script>
+    document.querySelector("button").addEventListener("click",signUp);
+    var userArr=JSON.parse(localStorage.getItem("userData")) || [ ];
+    function signUp(){
+   var email= document.getElementById("email").value;
+   var pass=  document.getElementById("pass").value;
+   var user= document.getElementById("user").value;
+   var mobile= document.getElementById("mobile").value;
+  // console.log(email,pass,user,mobile);
+  var userCredential={
+   emailAdress:email,
+   passWord:pass,
+   username:user,
+   mobileNo:mobile,
+  };
+ // console.log(userCredential)
+   userArr.push(userCredential);
+   localStorage.setItem("userData",JSON.stringify(userArr));
+   
+   //console.log("userArr:",userArr);
+   window.location.href="signIn.html"
+   }
+</script>
